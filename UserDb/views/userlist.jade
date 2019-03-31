@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  each val in [1, 2, 3, 4, 5]
+    div
+    form(action='/',method='post')
+      div(data-role='fieldcontain')
+        fieldset(data-role='controlgroup')
+          label(for='name') User Name
+            label #{data.name}
+      div(data-role='fieldcontain')
+        fieldset(data-type='vertical', data-role='controlgroup')                                           
+        label(for='fname') First Name
+            label #{data.surname}
+      div(data-role='fieldcontain')
+        fieldset(data-type='vertical', data-role='controlgroup')                                           
+        label(for='lname') Age
+            label #{data.age}
+      div(data-role='fieldcontain')
+        fieldset(data-type='vertical', data-role='controlgroup')                                           
+        label(for='lname') Country
+            label #{data.country}
+      div(data-role='fieldcontain')   
+        input(type='submit',value='Create Profile',data-transition='fade', data-theme='c')
+  - var userlist = {users}
+  div
+ table
+  thead
+   tr: th Users
+    tbody
+     each user in userlist
+      tr
+       td=user
